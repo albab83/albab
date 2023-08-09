@@ -1,0 +1,40 @@
+
+body {
+    border: 0px solid #000;
+    background: linear-gradient(180deg, rgba(30, 167, 208, 0.50) 0%, rgba(25, 184, 233, 0.00) 100%);
+    background-image: url('/image/background.jpg');
+    background-size: cover;
+    
+    
+}
+.container {
+    display: grid;
+    grid-template-areas: 
+    'nav nav nav nav'
+    'heading heading imgprofil imgprofil';
+    gap: 10px;
+    padding: 10px;
+
+}
+.container > div {
+    border: 10px solid rgb(255, 255, 255);
+}
+.nav {
+    grid-area: nav;
+}
+
+.heading {
+    grid-area: heading;
+    position: relative;
+    top: 50px;
+}
+.heading h1 {
+    text-align: center;
+}
+.heading {
+    text-align: left;
+}
+
+.imgprofil {
+    grid-area: imgprofil;
+}
