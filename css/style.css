@@ -1,7 +1,7 @@
 
 
 body {
-    background-image: url('/image/SL_043021_42650_02 1.png');
+    background-image: url('/image/background.png');
     background-size: cover;
     
     
@@ -50,8 +50,8 @@ body {
 }
 
 #logout {
-        background:#2C97DF;
-        color:white;
+        background:#ffffff;
+        color:rgb(12, 59, 152);
         border-top:0;
         border-left:0;
         border-right:0;
