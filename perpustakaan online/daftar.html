@@ -1,0 +1,108 @@
+<html>
+    <head>
+        <title>daftar</title>
+        <style>
+            *{
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                color: #ffffff;
+            }
+            body {
+                background-image: url(./cover.jpg);
+                background-size: cover;
+            }
+            div {
+                border: none;
+            }
+            
+            .nav a {
+                text-decoration: none;
+                color: #ffffff;
+            }
+            .container {
+                display: grid;
+                grid-template-areas: 
+                'heading heading heading heading'
+                'logo logo form form';
+                width: 100%;
+                margin: auto;
+                max-width: 800px;
+                margin-top: 100px;
+                background-color: rgba(0, 0, 0, 0.452);
+            
+            }
+            .heading {
+                grid-area: heading;
+                padding: 10px;
+            }
+            .logo {
+                grid-area: logo;
+                padding: 10px;
+                text-align: center;
+                
+            }
+            .logo img{
+                width: 300px;
+                height: 300px;
+                position: ;
+            }
+            .form {
+                grid-area: form;
+                padding: 10px;
+            }
+            .form {
+                position: relative;
+                top: -20px;
+            }
+            .container form button {
+                background-color: rgb(81, 81, 217);
+                color: #ffffff;
+                width: 200px;
+            }
+            .container form input {
+                width: calc(100% - 20px);
+                padding: 8px 10px;
+                margin-bottom: 15px;
+                border: none;
+                background-color: transparent;
+                border-bottom: 2px solid #2979ff;
+                color: #fff;
+                font-size: 20px;
+            }
+            .container form label {
+                margin-bottom: 10px;
+                text-align: center;
+            }
+        </style>
+
+
+    </head>
+
+    <body>
+        <div class=" container">
+            <div class="heading">
+                <h1>Selamat Datang Di Perpustakaan Online</h1>
+                <h4> silahkan untuk login</h4>
+            </div>
+
+            <div class="logo">
+                <img src="book.jpg" alt="">
+            </div>
+
+            <div class="form">
+                <h1>Daftar</h1>
+                <form action="">
+                <input type="text" placeholder="Email/Username"><br>
+                <input type="password" placeholder="Password"><br>
+                <input type="password" placeholder="Ulangi Paswsword"><br>
+                <input type="text" placeholder="Nama Lengkap"><br>
+                <input type="text" placeholder="Alamat"><br>
+                <button>Daftar</button><br>
+                <a href="daftar.html">Belum punya akun <br> silahkan daftar?</a>
+            </div>
+               
+           
+        </div>         
+    </body>
+    
+    
+</html>

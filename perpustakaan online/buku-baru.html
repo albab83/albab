@@ -1,0 +1,119 @@
+<html>
+    <head>
+        <title>perpustakaan online</title>
+
+        <style>
+            body {
+                background-image: url(./cover.jpg); fill-opacity: 50%;
+                background-size: cover;
+                background-position-y: 70%;
+            }
+            div {
+                border: none;
+                color: #dddddd;
+                }
+            .container {
+                display: grid;
+                grid-template-areas: 
+                'heading heading nav'
+                'navbook buku-table buku-table'
+                'navbook buku-table buku-table';
+                width: 100%;
+                margin: auto;
+                max-width: 800px;
+                margin-top: 150px;
+                background-color: rgba(0, 0, 0, 0.55);
+                border-radius: 10px;
+
+                }
+            .nav {
+                padding-top: 10px;
+                border-bottom: 2px solid white;
+                
+            }
+
+            .nav a {
+                grid-area: nav;
+                padding: 10px;
+                text-align: left;
+                text-decoration: none;
+                color: #ffffff;
+                padding-left: 20px;
+                
+            }
+            .heading {
+                grid-area: heading;
+                padding: 10px;
+                color: #ffffff;
+                border-bottom: 2px solid white;
+            }
+            .navbook {
+                grid-area: navbook;
+                padding: 10px;
+                text-align: center;
+            }
+            .navbook button {
+
+            }
+            .daftar-buku {
+                grid-area: daftar-buku;
+                padding: 10px;
+                text-align: center;
+
+            }
+            .buku-table {
+                grid-area: buku-table;
+                padding: 10px;
+                text-align: center;
+                border-left: 2px solid white;
+            }
+            .buku-table input {
+                width: 30%;
+                margin: 5px;
+                text-align: center;
+            }
+            .buku-table button {
+                margin-top: 10px;
+                margin-right: 1px px;
+                color: #ffffff;
+                background-color: #0693f2;
+                width: 20%;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="nav">
+                <a href="http://">Profil</a>
+                <a href="http://">Logout</a>
+            </div>
+            
+            <div class="heading">
+                <h1>Selamat Datang Di Perpustakaan Online</h1>
+            </div>
+
+            <div class="navbook">
+                <button>Buku Baru</button>
+                <button>Daftar Buku</button>
+            </div>
+            
+            <div class="buku-table">
+                <form action="">
+                    <div class="input">
+                        <input type="text" placeholder="No ISBN"><br>
+                        <input type="text" placeholder="Judul Buku"><br>
+                        <input type="text" placeholder="Penerbit"><br>
+                        <input type="text" placeholder="Tahun Terbit"><br>
+                        <input type="text" placeholder="Kategori"><br>
+                        <div class="button">
+                            <button>Simpan Buku</button>
+                            <button>Cancel</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </body>
+</html>
