@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@900&display=swap');
+
+@media screen {
+  
+}
+* * { 
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+  }
+
+
+body {
+    background: #8FC9AE;
+    background-size: cover;
+    background-image: url('/image/Rectangle91.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+
+.container {
+    display: grid;
+    grid-template-areas: 
+    'nav nav nav nav'
+    'heading heading imgprofil imgprofil';
+    gap: 10px;
+    padding: 10px;
+
+}
+
+.nav {
+    grid-area: nav;
+}
+
+.heading {
+    grid-area: heading;
+    position: relative;
+    top: 150px;
+}
+.nama {
+    text-align: left;
+    left: 20px;
+}
+
+.heading {
+    text-align: left;
+    font-family:sans-serif;
+}
+
+.imgprofil {
+    grid-area: imgprofil;
+}
+.imgprofil img {
+    width: 446px;
+    height: 500px;
+    flex-shrink: 0;
+    position: relative;
+    top: 150px;
+    left: 300px;
+}
+.nav1 {
+    position: relative;
+    left: 1100px;
+    top: 30px;
+    word-spacing: 20px;
+
+}
+
+.nav2 {
+    word-spacing: 20px;
+    position: relative;
+    left: 30px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+ 
+   
+}
+.nav2 a:hover {
+    color: #0afca5;
+}
+.nav2 a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 50px;
+   
+}
+
+#logout {
+    background:#ffffff;
+    color:rgb(12, 59, 152);
+    border-top:0;
+    border-left:0;
+    border-right:0;
+    border-bottom:5px solid #2A80B9;
+    padding:10px 20px;
+    text-decoration:none;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size:11pt;
+    border-radius: 30px;       
+    }
+
+#profil {
+    background:#ffffff;
+    color:rgb(2, 31, 87);
+    border-top:0;
+    border-left:0;
+    border-right:0;
+    border-bottom:5px solid #2A80B9;
+    padding:10px 20px;
+    text-decoration:none;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size:11pt;
+    border-radius: 30px;
+
+
+}
+#profil:hover {
+    color: #0afca5;
+    background-color: #2A80B9;
+   
+
+}
+#logout:hover {
+    color: #0afca5;
+    background-color: #2A80B9;
+}
+.albab-im-albab-ghozhari {
+    top: 50px;
+    left: 267px;
+    color: rgb(255, 255, 255);
+    height: auto;
+    position: absolute;
+    font-size: 80px;
+    font-style: Regular;
+    text-align: left;
+    font-family: 'poppins', sans-serif;
+    font-weight: 900;
+
+    font-weight: 400px;
+    line-height: 80px;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .albab-text08 {
+    color: #ffffff;
+  }
+  .albab-text09 {
+    color: #0afca5;
+  }
+  .albab {
+    letter-spacing: 6px;
+  }
+  .ghozhari {
+    letter-spacing: 6px;
+  }
+
+  .albab-santri-stfq-bandung {
+    left: 20px;
+    color: rgb(255, 255, 255);
+    bottom: -24px;
+    height: auto;
+    position: absolute;
+    font-size: 20px;
+    font-style: Regular;
+    text-align: left;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+
+  .sosmed {
+    font-size:50px;
+    color: #ffffff;
+    position: relative;
+    top: 10px; 
+    left: 18px;
+    font-weight: 100px;
+  }
+
+  .sosmed i:hover {
+    color: #0afca5;
+  }
+
+  i {
+    width: 1px;
+  }
+
+  .sosmed ul {
+    list-style: none;
+  }
+
+  /* For mobile phones: */
+
+@media only screen and (min-width: 600px) {
+  .nav2 {
+    position: fixed;
+    bottom: 0px;
+  }
+
+}
+
+@media only screen and (max-width: 100%) {
+  /* For desktop: */
+    .nav2 {
+
+    }
+}

@@ -1,0 +1,9 @@
+/* bagian card project */
+
+.daftar-sejarah {
+  display: flex;
+  justify-content: space-around;
+}
+.card {
+  margin-top: 2rem;
+}
