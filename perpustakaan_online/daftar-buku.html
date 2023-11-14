@@ -1,0 +1,139 @@
+<html>
+    <head>
+        <title>perpustakaan online</title>
+
+        <style>
+            body {
+                background-image: url(./cover.jpg);
+                background-size: cover;
+            }
+            div {
+                border: none
+                color: #dddddd;
+                }
+            .container {
+                display: grid;
+                grid-template-areas: 
+                'heading heading nav'
+                'daftar-buku buku-table buku-table'
+                'buku-baru buku-table buku-table';
+                width: 100%;
+                margin: auto;
+                max-width: 800px;
+                margin-top: 150px;
+                background-color: rgba(0, 0, 0, 0.55);
+                border-radius: 10px;
+
+                }
+            .nav {
+                padding-top: 10px;
+            }
+
+            .nav a {
+                grid-area: nav;
+                padding:12px;
+                text-align: left;
+                text-decoration: none;
+                color: #ffffff;
+                margin-top: 10px;
+            }
+            .heading {
+                grid-area: heading;
+                padding: 10px;
+                color: #ffffff;
+            }
+            .buku-baru {
+                grid-area: buku-baru;
+                padding: 10px;
+            }
+            .buku-baru a{
+                border: solid rgb(58, 58, 215);
+                color: #ffffff;
+                background-color: rgb(62, 62, 230);
+                text-decoration: none;
+            }
+            .daftar-buku {
+                grid-area: daftar-buku;
+                padding: 10px;
+
+            }
+            .daftar-buku a {
+                background-color: #f8e40a;
+                color: #8a6565;
+            }
+            .buku-table {
+                grid-area: buku-table;
+                padding: 10px;
+               
+            }
+            table {
+                width: 100%;
+            }
+       
+            tr th {
+                border: 1px solid #dddddd;
+                text-align: center;
+                padding: 10px;
+                color: #ffffff;
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="nav">
+                <a href="http://">Profil</a>
+                <a href="http://">Logout</a>
+            </div>
+            
+            <div class="heading">
+                <h1>Selamat Datang Di Perpustakaan Online</h1>
+            </div>
+
+            <div class="buku-baru">
+                <b><a href="buku-baru.html" target="_blank" rel="noopener noreferrer">BUKU BARU</a></b>
+            </div>
+
+            <div class="daftar-buku">
+                <b><a href="" target="_blank" rel="noopener noreferrer">DAFTAR BUKU</a></b>
+            </div>
+            <div class="buku-table">
+                
+                <table>
+                    <tr>
+                        <th>No</th>
+                        <th>ISBN</th>
+                        <th>Judul</th>
+                        <th>Penerbit</th>
+                        <th>Status</th>
+                    </tr>
+
+                    <tr>
+                        <th>01</th>
+                        <th>190289</th>
+                        <th>Belajar PHP</th>
+                        <th>AngkasaCorp</th>
+                        <th>tersedia</th>
+                    </tr>
+
+                    <tr>
+                        <th>02</th>
+                        <th>89022920</th>
+                        <th>Belajar CSS</th>
+                        <th>gramedia</th>
+                        <th>tersedia</th>
+                    </tr>
+                    <tr>
+                        <th>03</th>
+                        <th>77282200</th>
+                        <th>Belajar JavaScript</th>
+                        <th>Studiobray</th>
+                        <th>tersedia</th>
+                    </tr>
+                </table>
+            </div>
+
+        </div>
+    </body>
+</html>

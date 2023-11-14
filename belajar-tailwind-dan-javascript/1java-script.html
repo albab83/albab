@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>belajar</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="dist/output.css" rel="stylesheet" />
+  </head>
+  <body class="bg-amber-200">
+    <script>
+      // belajar variable string
+
+      let fullName = "manchester united";
+      let firstName = "saputra";
+      let middleName = "ghozhari";
+      let lastName = "saputra";
+
+      document.writeln(fullName);
+      document.writeln("</br>");
+      document.writeln(middleName);
+
+      fullName = "saputra";
+      document.writeln("</br>");
+      document.writeln(fullName);
+      document.writeln("</br>");
+      document.writeln(fullName);
+      document.writeln("</br>");
+      document.writeln(fullName);
+      document.writeln("</br>");
+
+      //variable yang tidak dapat di ubah
+
+      const application = "Belajar Java script  darsar";
+
+      document.writeln(application);
+
+      document.writeln("</br>");
+
+      // contoh oprator aritmatika
+
+      let result = 1 + 2; //3
+      document.writeln("<p>1 + 2 = " + result + "</p>");
+      let originalResult = result; //3
+
+      result -= 1; //2
+      document.writeln("<p>" + originalResult + "-1 =  " + result + "</p>");
+      originalResult = result; //2
+
+      result *= 2; //4
+      document.writeln("<p>" + originalResult + "* 2 = " + result + "</p>");
+
+      //oprator unary menambah satu angka dari angka sebenarnya
+
+      let angka = +1;
+      document.writeln("<p>" + angka + "</p>");
+
+      angka--;
+      document.writeln("<p>" + angka + "</p>");
+
+      angka++;
+      document.writeln("<p>" + angka + "</p>");
+
+      angka = -angka;
+      document.writeln("<p>" + angka + "</p>");
+
+      //oprator perbandingan (bolean)
+
+      document.writeln("contoh perbandingan data ");
+      document.writeln("</br>");
+      let perbandingan = 5 == "5"; //akan membuat suatu nilai yang sama walaupun tipe datanya beda
+      document.writeln("<p>" + "apakah 5 == 5 " + perbandingan + "</p>"); //hasilnya akan true
+      perbandingan = 5 === "5"; //dengan menambahkan = menjadi === itu kan membedadan tipe data walaupun angkanya sama
+      document.writeln("<p>" + "apakah 5 === 5 " + perbandingan + "</p>"); //hasilnya akan false
+      document.writeln("</br>");
+
+      perbandingan = 5 > 10;
+      document.writeln("apakah 5 lebih dari 10 = " + perbandingan);
+      document.writeln("</br>");
+      perbandingan = 5 < 10;
+      document.writeln("apakah 5 kurang dari 10 = " + perbandingan);
+
+      document.writeln("</br>");
+      //if else
+      document.writeln("contoh perbandingan data ");
+      document.writeln("</br>");
+
+      let angkaa = 1;
+
+      if (angkaa == 1) {
+        document.writeln("Angka Satu");
+      } else if (angkaa == 2) {
+        document.writeln("Angka Dua");
+      } else if (angkaa == 3) {
+        document.writeln("Angka Tiga");
+      } else if (angkaa == 4) {
+        document.writeln("Angka Empat");
+      } else {
+        document.writeln("salah bro tidak ada yang betul");
+      }
+      document.writeln("</br>");
+      document.writeln("</br>");
+      var nama = "ilkom";
+      if (nama == "ilkom") {
+        document.writeln("Berhasil!");
+        document.writeln("Belajar");
+        document.writeln("JavaScript");
+      } else {
+        document.writeln("anda belum berhasil");
+      }
+
+      //oprator logika
+      //1. && = dan
+      //2. || = atau
+      //3. ! = kebalikan
+
+      document.writeln("</br>");
+      document.writeln("contoh oprator logika");
+      document.writeln("</br>");
+
+      const nilaiUjian = 90;
+      const nilaiAbsensi = 90;
+
+      const lulusUjian = nilaiUjian > 75;
+      document.writeln(lulusUjian);
+      const lulusAbsensi = nilaiAbsensi > 75;
+      document.writeln(lulusAbsensi);
+      const lulus = lulusUjian && nilaiAbsensi;
+      document.writeln(lulus);
+
+      //Console
+
+      console.log("hello world");
+      console.warn("peringatan");
+      console.error("error di sisni ada error nih");
+
+      //string template
+
+      console.log("string template");
+      const name = "eko kurniawan kanedi";
+      const templete = `Name : ${name} `;
+      console.info(templete);
+
+      //string expression
+      console.log("string expression");
+      const nilai = 90;
+      const template = `
+      nama : ${name} 
+      lulus : ${nilai > 70}`;
+      console.log(template);
+
+      //multiline string dengan menambahkan enter di dalam textnya
+      console.log("multiline");
+    </script>
+  </body>
+</html>

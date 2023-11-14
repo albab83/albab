@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        section {
+            height: 100vh !important;
+        }
+    </style>
+</head>
+  <body>
+    <section class="d-flex align-items-center">
+        <div class="container">
+            <div class="row justify-content-center mt-6">
+                <div class="col-4 text-center"><h1>Sign In</h1></div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-4">
+                    <form onsubmit="return false">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">UserName</label>
+                            <input type="text" class="form-control" id="username" aria-describedby="emailHelp">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">Password</label>
+                            <input id="password" type="password" class="form-control" >
+                        </div>
+                        <div class="text-center">
+                            <button onclick="register()" type="" class="btn btn-primary col-3">Daftar</button>
+                            <button onclick="login()" type="submit" class="btn btn-primary col-3">login</button>
+                            <button onclick="logout()" type="submit" class="btn btn-primary col-3">logout</button>
+                        </div>
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+     <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h2>My First JavaScript</h2>
+                        <button type="button"
+                        onclick="document.getElementById('demo').innerHTML = Date()">
+                        Click me to display Date and Time.</button>
+                        <p id="demo"></p>
+                </div>
+            </div>
+        </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+    </script>
+
+    <script>
+
+
+        /*let nama = "";
+        let password = "";  
+        let nama_log = simpan_data();
+
+        function simpan_data(){
+            nama = document.getElementById("username").value;
+            password =  document.getElementById("password").value;
+        }
+
+        function hapus_data(){
+            nama = "";
+            password = "";
+        }
+
+        function register() {
+            let register_nama = document.getElementById("username").value;
+            let register_password =  document.getElementById("password").value;
+            if (nama != "" && password != "") {
+                alert("data sudah ada, silahkan login")
+            }else {
+                if (register_nama == "" || register_password == ""){
+                    alert("Mohon masukan data")
+                }else {
+                    alert("sukses")
+                    simpan_data()
+                    
+                }
+            }
+            
+        }
+
+        function login(){
+            let login_nama = document.getElementById("username").value;
+            let login_password =  document.getElementById("password").value;
+            if (nama == login_nama && password == login_password){
+                alert("login sukses")
+                if(nama == ""){
+                    alert("masukan data")
+                }
+            }else {
+                alert("login gagal")
+
+            }
+        }
+
+        function logout(){
+            if(nama == "" && password == ""){
+                alert("anda belum login")
+            }
+            else{
+                hapus_data()
+                alert("anda telah logout")
+            }
+        }*/ 
+
+        /*const nama = document.getElementById("username");
+        const password = document.getElementById("password");
+
+        const arrUsername = []
+        const arrPassword = []
+        const arrUserlogin = []
+        const arrPasslogin = []
+
+        function register() {
+            const nama = document.getElementById("username");
+            const password = document.getElementById("password");
+            if (arrUsername != nama.value && arrPassword != nama.value ){
+                arrUsername.push(nama.value);
+                arrPassword.push(password.value);
+                alert("berhasil daftar");
+                console.log(arrUsername)
+                // window.location.replace("tugas2.html")
+                
+            } else {
+                if (arrUsername.includes(nama.value)) {
+                    alert("username sudah ada")
+                } else{
+                    alert("harap isi data dengan lengkap")
+                }
+            }
+        }
+
+        function login() {
+            const nama = document.getElementById("username");
+            const password = document.getElementById("password");
+            if (arrUsername.includes(nama.value) ){
+                if(arrPassword.includes(password.value)){
+                    if (arrUserlogin != nama.value && arrPasslogin != password.value){
+                        arrUserlogin.push(nama.value);
+                        arrPasslogin.push(password.value)
+                        alert("Berhasil Login")
+                        
+                    }else {
+                        if (arrUserlogin.includes(nama.value)){
+                            alert("anda sudah login")
+                        }
+                    }
+                    //window.location.replace("tugas2.html")
+
+                } else {
+                    alert("password salah")
+                }
+            } else {
+                alert("username belum terdaftar. Harap daftar dahulu")
+            }
+            console.log(arrUsername)
+            console.log(arrUserlogin)
+        }
+
+        function logout(){
+
+            const out = arrUserlogin.indexOf(nama.value)
+
+            if (arrUserlogin.includes(nama.value)){
+                arrUserlogin.splice(out,1)
+                arrPasslogin.splice(out,1)
+                    alert("anda telah Logout")
+                    console.log(arrUserlogin)
+            } else {
+                alert("anda belum login")
+            }
+        }
+
+        function pindah(){
+            window.location.replace("register.html")
+        }
+            
+
+        function hapus(){
+            const del = arrUsername.indexOf(nama.value)
+            if (arrUsername.includes(nama.value)){
+                arrUsername.splice(del,1) ;
+                arrPassword.splice(del,1); 
+                alert("Akun Anda telah dihapus");
+                console.log(arrUsername)
+            }else {
+                alert("anda belum punya akun")
+            }
+        }*/
+
+
+        //contoh json
+        /*const student = {
+        name: "Alpha",
+        age: 25,
+        isAdmin: false,
+        courses: ["html", "css", "js"],
+        wife: null
+        };
+
+        const json = JSON.stringify(student);
+
+        console.log(typeof json); // we've got a string!
+
+        console.log(json);*/
+
+        /*const meetup = {
+        title: "Conference",
+        room: {
+            number: 23,
+            participants: ["john", "ann"]
+        }
+        };
+
+        console.log(JSON.stringify(meetup));*/
+
+
+        // contoh json 
+
+        // let text = '{ "employees" : [' +
+        //     '{ "firstName":"John" , "lastName":"Doe" },' +
+        //     '{ "firstName":"Anna" , "lastName":"Smith" },' +
+        //     '{ "firstName":"Peter" , "lastName":"Jones" } ]}';
+        // console.log();
+
+         // Deklarasi variable dari local storage
+            let allUsersJSON = localStorage.getItem("allUsers");
+            //ganti json jadi array object supaya mudah di akses
+            let allUsersArray = localStorage.stringify(allUsersJSON);
+
+
+            function update_storage(){
+                //ubah array jadi json 
+                let allUserJSON = JSON.stringify(allUsersArray);
+                //simpan ke local storage 
+                localStorage.getItem("allUsers", allUserJSON);
+            }
+
+
+            function register(){
+                //ambil data dari form 
+                let username = document.getElementById("username")
+                let password = document.getElementById("password")
+                
+                //cek apakah username sudah ada di variable allUsersArray
+                if (){
+                    //jika tidak ada simpan data ke allUsers dan update storage
+                    allUsersArray = ; //proses simpan data ke allUSersArray
+                    update_storage();
+                }else{
+                    //jika ada tampilkan pesan error 
+                    alert("username sudah ada")
+                }
+                
+            }
+
+
+
+    </script>

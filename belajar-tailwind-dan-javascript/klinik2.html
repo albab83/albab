@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <button onclick="periksa()">Jam Masuk</button>
+    <button onclick="time()">Klik Untuk Masuk</button>
+    
+
+
+
+
+    <script>
+        function periksa (){
+            let inHour = prompt("Masukan Jam:");
+            let startHour = 8;
+            let endHour = 16;
+
+            if (inHour >=startHour && inHour <= endHour){
+                alert('Silahkan Masuk')
+            }
+            else {
+                alert('Maaf Klinik Tutup')
+            }
+        }
+
+        function time (){
+            const d = new Date(16.33);
+            let buka = 08.00;
+            let tutup = 16.00;
+            if (d >= buka && d <= tutup) {
+                alert("Silahkan Masuk").innerHTML = d;
+            }
+                else{
+                    alert ('Mohon Maaf Klinik Tutup');
+                }
+            
+        }
+
+
+    </script>
+</body>
+</html>

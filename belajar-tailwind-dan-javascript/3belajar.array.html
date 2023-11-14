@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Type data array</title>
+  </head>
+  <body>
+    <script>
+      //type data array
+      let arrayKosong = [];
+
+      let arrayNama = ["hady", "aziz", "fajari", "uwan"];
+
+      //cara kerja array
+      //1.setiap data akan di simpan dalam posisi berurutan, di mana urutan pertama dimulai dari 0
+      //2.setiap kita menambahkan data ke array, otomatis data akan di simpan di urutan terakhir
+      //3.urutan di array kita sebut index
+
+      const names = [];
+      names.push("eko");
+      names.push("uwan maharani", "aziz");
+      names.push("jokp", "budi", "maman ", "suherman");
+
+      console.table(names);
+      console.log(names[2]);
+      console.log(names[4]);
+      console.log(names[4]);
+      console.log(names[1]);
+
+      //cara ganti data di array
+
+      names[0] = "bruno";
+      names[1] = "fernandes";
+      names[3] = "hojlund";
+      names[4] = "antony";
+
+      console.table(names);
+
+      //hapus data di array
+
+      delete names[2];
+      console.table(names);
+
+      /*perlu di ingat:
+      1.data dalam array tidak ada batasannya harus data apa
+      2.jadi kita bisa memasukan data apapun kedalam array
+      3.bahkan kita juga bisa memasukan data array ke dalam array jika kita mau
+      */
+
+      names.push(["iwan", "mang asep", "mang ujang"]);
+      console.table(names);
+    </script>
+  </body>
+</html>
