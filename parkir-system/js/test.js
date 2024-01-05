@@ -18,7 +18,7 @@ function masuk(){
                 "jenis" : jenis,
                 "plate" : plate,
                 "jam_masuk" : waktu,
-             })
+            })
             localStorage.setItem("kendaraan", JSON.stringify(arr));
             show_data();
         }
@@ -43,25 +43,29 @@ function show_data(){
                     <td>` + arr[i].plate + `</td>
                     <td>` + arr[i].jam_masuk + `</td>
                     <td >` + arr[i].waktu + `</td>
-                    <td class= "text-center"><button class="btn mx-auto rounded-4 bg-gradient btn-primary border-radius-4" onclick="hapus_data(` + i +`,'` + arr[i].jenis + `', '` + arr[i].jam_masuk + `')">keluar</button></td>
+                    <td class= "text-center"><button class="btn mx-auto rounded-4 bg-gradient btn-primary border-radius-4" onclick="hapus_data(` + i +`,'` + arr[i].jenis + `', '` + arr[i].jam_masuk + `', '` + arr[i].plate + `')">keluar</button></td>
                 </tr>`
             );
         }
     }
 }
     
-function hapus_data(id, jenis, jam_masuk){
-    $(`#${id}`);
+function hapus_data(id, jenis, jam_masuk, jam_keluar, total_jam, bayarMobil, bayarMotor){
+    $(`#${id}`).remove();
     let arr = JSON.parse(localStorage.getItem("kendaraan"));
     _.find(arr, ['jenis', jenis]);
     _.find(arr, ['jam_masuk', jam_masuk]);
-    console.log('jenis kendaraan: ', jenis);
-    console.log('jam masuk: ', jam_masuk);
-        
-    // $(`#${id}`).remove();
-    // let arr = JSON.parse(localStorage.getItem("kendaraan"))
-    // _.remove(arr, {plate: plate});
-    // localStorage.setItem("kendaraan", JSON.stringify(arr));
+    jam_keluar = prompt("masukan jam keluar")
+    total_jam = jam_keluar - jam_masuk;
+        if( jenis == "mobil"){
+            bayarMobil = total_jam * 5000;
+            alert("anda harus membayar " + bayarMobil);
+        }else{
+            bayarMotor = total_jam * 2000;
+            alert("anda harus membayar " + bayarMotor);
+        }
+    _.remove(arr,  ['jam_masuk', jam_masuk]);
+    localStorage.setItem("kendaraan", JSON.stringify(arr));
 }
 
 
