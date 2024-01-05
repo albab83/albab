@@ -56,8 +56,7 @@ function hapus_data(id, jenis, jam_masuk){
     _.find(arr, ['jenis', jenis]);
     _.find(arr, ['jam_masuk', jam_masuk]);
     console.log('jenis kendaraan: ', jenis);
-    console.log('jam masuk: ', jam_masuk)
-    let jam_keluar = prompt("masukan jam keluar");
+    console.log('jam masuk: ', jam_masuk);
         
     // $(`#${id}`).remove();
     // let arr = JSON.parse(localStorage.getItem("kendaraan"))
@@ -65,7 +64,7 @@ function hapus_data(id, jenis, jam_masuk){
     // localStorage.setItem("kendaraan", JSON.stringify(arr));
 }
 
-show_data();
+
 
 
 // function addData() {
@@ -291,3 +290,4 @@ show_data();
 // let parkingFee = computeParkingFee('5/12/2020 18:30', '5/12/2020 19:50');
 // outputParkingFee(parkingFee);
 // }
+show_data();
