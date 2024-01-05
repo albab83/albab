@@ -19,8 +19,8 @@ function masuk(){
                 "plate" : plate,
                 "jam_masuk" : waktu,
              })
-             localStorage.setItem("kendaraan", JSON.stringify(arr));
-             show_data();
+            localStorage.setItem("kendaraan", JSON.stringify(arr));
+            show_data();
         }
     }
 }
@@ -31,12 +31,11 @@ function masuk(){
 // }
 
 function show_data(){
-
     alert('data akan di tampilkan')
     let arr = JSON.parse(localStorage.getItem("kendaraan"));
-    if(typeof arr != 'undifined') {
+    if(typeof arr != 'undifined'){
         jQuery(".data").remove();
-        for (let i = 0; i < arr.length; i++) {
+        for (let i = 0; i < arr.length; i++){
             jQuery('#tableBody').append(
                 `<tr class= "text-center" id="` + i +`" class="data">
                     <td>` + arr[i].owner + `</td>
@@ -44,93 +43,27 @@ function show_data(){
                     <td>` + arr[i].plate + `</td>
                     <td>` + arr[i].jam_masuk + `</td>
                     <td >` + arr[i].waktu + `</td>
-                    <td class= "text-center"><button class="btn mx-auto rounded-4 bg-gradient btn-primary border-radius-4" onclick="hapus_data(` + i +`,'` + arr[i].plate +`')">keluar</button></td>
+                    <td class= "text-center"><button class="btn mx-auto rounded-4 bg-gradient btn-primary border-radius-4" onclick="hapus_data(` + i +`,'` + arr[i].jenis + `', '` + arr[i].jam_masuk + `')">keluar</button></td>
                 </tr>`
             );
         }
     }
 }
-
-function getJenis() {
+    
+function hapus_data(id, jenis, jam_masuk){
+    $(`#${id}`);
     let arr = JSON.parse(localStorage.getItem("kendaraan"));
-    for(var i = 0; i < arr.length; i++) {
-         let jenis = arr[i].jenis;
-             console.log(jenis);
-        }
-    }
-
-    // let dataJenis = JSON.parse(localStorage.getItem("kendaraan"));
-    // dataJenis.forEach((key) => {
-    //     let jsonData = JSON.parse(key.jenis);
-    //     jsonData.forEach((jenis) => console.log(jenis));
-    //   });
-    
-    // let arr = JSON.parse(localStorage.getItem("kendaraan"));
-    // const result = arr.find(({jenis}) => ({jenis}));
-    // console.log(result);
-   
-    // var item = [0];  // since there is only one item in the array, have specified the index else you shall use 'for' loop to iterate all the items
-    // var result = item.jenis;
-    // alert(result);
-
-    // if(typeof arr != 'undifined') {
-    //     jQuery(".data")
-    //     for (let i = 0; i < arr.length; i++)
-    //     ambil_dataKendaraan = (arr[i].jam_masuk);
-
-    // console.log();
-    // }
-
-
-      
-    // let dataJenis = JSON.parse(localStorage.getItem("kendaraan"));
-    // for(let i = 0; i < dataJenis.length; i++) {
-    //     let obj = dataJenis[i];
-    
-    //     console.log(obj);
-    // }
-
-//bayar
-// function getJenis(id,){
-//     $(`#${id}`);
-//     let arr = JSON.parse(localStorage.getItem("kendaraan"));
-//     if(typeof arr != 'undifined'){
-//         for(let i=0; i<arr.length; i++) {
-//             if(arr[i].owner != "undefined") {
-//                 // __FOUND is set to the index of the element
-//                 getKendaraan = i;
-//                 console.log(arr[i]);
-//                 break;
-//             }
-//         }
-//     }
-// }
-
-
-
-    //   {
-    //     if (typeof jenis === "mobil" && jam_masuk === waktu){
-    //         let jumlahJam = waktu - keluar;
-    //         let jumlah = jumlahJam * mobil;
-    //         alert("anda harus bayar "+ jumlah);
-    //     }else{
-    //         let jumlah = jumlahjam * motor;
-    //         alert("anda harus bayar "+ jumlah);
-    //     }
-    // };
- 
-    
-  
-   
-    
-    
-    function hapus_data(id, plate){
-        getJenis();
-        // $(`#${id}`).remove();
-        // let arr = JSON.parse(localStorage.getItem("kendaraan"))
-        // _.remove(arr, {plate: plate});
-        // localStorage.setItem("kendaraan", JSON.stringify(arr));
-    }
+    _.find(arr, ['jenis', jenis]);
+    _.find(arr, ['jam_masuk', jam_masuk]);
+    console.log('jenis kendaraan: ', jenis);
+    console.log('jam masuk: ', jam_masuk)
+    let jam_keluar = prompt("masukan jam keluar");
+        
+    // $(`#${id}`).remove();
+    // let arr = JSON.parse(localStorage.getItem("kendaraan"))
+    // _.remove(arr, {plate: plate});
+    // localStorage.setItem("kendaraan", JSON.stringify(arr));
+}
 
 show_data();
 
