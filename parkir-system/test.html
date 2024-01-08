@@ -24,14 +24,14 @@
             <div class="col-lg-4 col-md-4 col-sm-12 col-12">
                 <div class="card rounded-0 shadow">
                     <div class="card-header rounded-0">
-                        <div class="card-title"><b>Parking Form</b></div>
+                        <div class="card-title text-center"><b>Parking Form</b></div>
                     </div>
                     <div class="card-body rounded-0">
                         <div class="container-fluid">
                             <form id="entryForm">
                                 <div class="form-group">
                                     <label class="fw-bold" for="owner">Car Owner/Driver:</label>
-                                    <input type="text" class="form-control rounded-0 shadow-sm" id="owner" placeholder="Udin">
+                                    <input type="text" class="form-control rounded-0 shadow-sm" id="owner" placeholder="Masukan Nama">
                                 </div>
                                 <div class="form-group">
                                     <label class="fw-bold" for="jenis">Jenis Kendaraan:</label>
@@ -48,7 +48,7 @@
                                     <label class="fw-bold" for="plate">Jam Masuk:</label>
                                     <input type="number" class="form-control rounded-0 shadow-sm" id="waktu" placeholder="Maasukan Waktu">
                                 </div>
-                                <button type="submit" class="btn mx-auto col-lg-5 col-md-6 col-sm-12 col-12 d-block mt-5 rounded-4 bg-gradient btn-primary border-radius-4" id="btnOne" onclick="masuk()">Save</button>
+                                <button type="submit" class="btn mx-auto col-lg-5 col-md-6 col-sm-12 col-12 d-block mt-5 rounded-4 bg-gradient btn-primary border-radius-4" id="btnOne" onclick="masuk()">Masuk</button>
                             </form>
                             <p id="demo"></p>
                         </div>
@@ -58,12 +58,12 @@
             <div class="col-lg-8 col-md-8 col-sm-12 col-12">
                 <div class="card rounded-0 shadow">
                     <div class="card-header rounded-0">
-                        <div class="card-title"><b>List of Parked Cars</b></div>
+                        <div class="card-title text-center"><b>List of Parked Cars</b></div>
                     </div>
                     <div class="card-body rounded-0">
                         <div class="container-fluid">
                             <div class="mb-3 position-relative">
-                                <input type="text" class="form-control rounded-0" id="searchInput" placeholder="Search...">
+                                <input type="text" class="form-control rounded-0" id="search" placeholder="Search...">
                                 <span class="position-absolute material-symbols-outlined" style="right: 10px;top: calc(50% - 0.7rem);">search</span>
                             </div>
                             <div class="table-responsive">

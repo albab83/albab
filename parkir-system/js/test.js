@@ -31,7 +31,6 @@ function masuk(){
 // }
 
 function show_data(){
-    alert('data akan di tampilkan')
     let arr = JSON.parse(localStorage.getItem("kendaraan"));
     if(typeof arr != 'undifined'){
         jQuery(".data").remove();
@@ -43,31 +42,116 @@ function show_data(){
                     <td>` + arr[i].plate + `</td>
                     <td>` + arr[i].jam_masuk + `</td>
                     <td >` + arr[i].waktu + `</td>
-                    <td class= "text-center"><button class="btn mx-auto rounded-4 bg-gradient btn-primary border-radius-4" onclick="hapus_data(` + i +`,'` + arr[i].jenis + `', '` + arr[i].jam_masuk + `', '` + arr[i].plate + `')">keluar</button></td>
+                    <td class= "text-center"><button class="btn mx-auto rounded-4 bg-gradient btn-primary border-radius-4" onclick="getObject(` + i +`,'` + arr[i].owner + `','` + arr[i].jenis + `', '` + arr[i].jam_masuk + `')">keluar</button></td>
                 </tr>`
             );
         }
     }
 }
-    
-function hapus_data(id, jenis, jam_masuk, jam_keluar, total_jam, bayarMobil, bayarMotor){
-    $(`#${id}`).remove();
+
+function getObject(id, owner){
     let arr = JSON.parse(localStorage.getItem("kendaraan"));
+    _.find(arr);
+
+    console.log(owner);
+
+}
+
+
+function hapus_data(id, owner, jenis, jam_masuk, jam_keluar, total_jam, bayarMobil, bayarMotor){
+    let arr = JSON.parse(localStorage.getItem("kendaraan"));
+
+    _.find(arr, ['owner', owner]);
     _.find(arr, ['jenis', jenis]);
     _.find(arr, ['jam_masuk', jam_masuk]);
-    jam_keluar = prompt("masukan jam keluar")
+    jam_keluar = prompt("masukan jam keluar:")
+    if(jam_keluar < jam_masuk){
+    return alert("maaf jam tidak valid");
+    }
     total_jam = jam_keluar - jam_masuk;
         if( jenis == "mobil"){
             bayarMobil = total_jam * 5000;
-            alert("anda harus membayar " + bayarMobil);
+            if(bayarMobil == 0){
+                alert("Wios Tong Mayar, jug gera uwih")
+            }else{
+                alert(owner +" anda harus membayar " + bayarMobil);
+            }
         }else{
             bayarMotor = total_jam * 2000;
-            alert("anda harus membayar " + bayarMotor);
+            if(bayarMotor == 0){
+                alert("Wios Tong Mayar, jug gera uwih")
+            }else{
+                alert("anda harus membayar " + bayarMotor);
+            }
         }
     _.remove(arr,  ['jam_masuk', jam_masuk]);
     localStorage.setItem("kendaraan", JSON.stringify(arr));
+    $(`#${id}`).remove();
 }
+show_data();
 
+// search data 
+
+document.querySelector('#search').addEventListener('keyup', function searchTable(){
+    //Dapatkan data dari input search
+    const searchValue = document.querySelector('#search').value.toUpperCase();
+    //Dapatkan semua baris body tabel
+    const tableLine = (document.querySelector('#tableBody')).querySelectorAll('tr');
+    //for loop #1 (digunakan untuk melewatkan semua baris)
+    for(let i = 0; i < tableLine.length; i++){
+        var count = 0;
+        //Dapatkan semua kolom dari setiap baris
+        const lineValues = tableLine[i].querySelectorAll('td');
+        //for loop #2 (digunakan untuk meneruskan semua kolom)
+        for(let j = 0; j < lineValues.length - 1; j++){
+            //Periksa apakah ada kolom baris yang dimulai dengan string pencarian masukan
+            if((lineValues[j].innerHTML.toUpperCase()).startsWith(searchValue)){
+                count++;
+            }
+        }
+        if(count > 0){
+            //Jika ada kolom yang berisi nilai pencarian, blok tampilan
+            tableLine[i].style.display = '';
+        }else{
+            //Jika tidak, tidak tampilkan apa pun 
+            tableLine[i].style.display = 'none';
+        }
+    }
+});
+
+// function myFunction() {
+//     var input, filter, table, tr, td, i, txtValue;
+//     input = document.getElementById("search");
+//     filter = input.value.toUpperCase();
+//     table = document.getElementById("tableBody");
+//     tr = table.getElementsByTagName("tr");
+//     for (i = 0; i < tr.length; i++) {
+//       td = tr[i].getElementsByTagName("td")[0];
+//       if (td) {
+//         txtValue = td.textContent || td.innerText;
+//         if (txtValue.toUpperCase().indexOf(filter) > -1) {
+//           tr[i].style.display = "";
+//         } else {
+//           tr[i].style.display = "none";
+//         }
+//       }       
+//     }
+//   }
+
+// untuk mencari data 
+// let     arr = JSON.parse(localStorage.getItem("kendaraan"))?JSON.parse(localStorage.getItem("kendaraan")):[];
+// let newArray = [];
+
+// document.getElementById("search").addEventListener("keyup", function(){
+//     let search = this.ariaValueMax.toLowerCase();
+//     newArray = array.filter(function(val){
+//         if(val.id.includes(search) || val.plate.includes(search)){
+//             let newObj = {id: val.id, plate: val.plate}
+//             return newObj;
+//         }
+//     })
+//     show_data();
+// })
 
 
 
@@ -294,4 +378,3 @@ function hapus_data(id, jenis, jam_masuk, jam_keluar, total_jam, bayarMobil, bay
 // let parkingFee = computeParkingFee('5/12/2020 18:30', '5/12/2020 19:50');
 // outputParkingFee(parkingFee);
 // }
-show_data();
