@@ -49,7 +49,7 @@ function show_data(){
 
 
 
-function hapus_data(id, owner, jenis, jam_masuk, jam_keluar, total_jam, bayarMobil, bayarMotor, tanggal){
+function hapus_data(id, owner, jenis, jam_masuk, jam_keluar, total_jam, bayarMobil, bayarMotor,){
     let arr = JSON.parse(localStorage.getItem("kendaraan"));
     _.find(arr, ['owner', owner]);
     _.find(arr, ['jenis', jenis]);
@@ -63,7 +63,8 @@ function hapus_data(id, owner, jenis, jam_masuk, jam_keluar, total_jam, bayarMob
         if( jenis == "mobil"){
             bayarMobil = total_jam * 5000;
             if(bayarMobil == 0){
-                alert("Wios Tong Mayar, jug gera uwih")
+                bayarMobil = "gratis";
+                alert("Wios Tong Mayar, jug gera uwih");
             }else{
                 alert(owner +" anda harus membayar " + bayarMobil);
             }
@@ -79,14 +80,19 @@ function hapus_data(id, owner, jenis, jam_masuk, jam_keluar, total_jam, bayarMob
     _.remove(arr, ['owner', owner]);
 
     //data tanggal
-    tanggal = new Date();
+    let tanggal = new Date().getDate();
+    let bulan = new Date().getMonth();
+    let tahun = new Date().getFullYear();
     
+    tanggal = String(tanggal).padStart(2, 0);        
+    bulan = String(bulan).padStart(2, 0);  
+
     //tambah data ke archive parkir
     let tambah_archive = JSON.parse(localStorage.getItem("Archive Data")) || [];
             tambah_archive.push({
             "owner" : owner,
             "jenis" : jenis,
-            "tanggal" : tanggal,
+            "tanggal" : `${tanggal}-${bulan}-${tahun}`,
             "pay" : bayarMobil || bayarMotor,
         });
     localStorage.setItem("Archive Data", JSON.stringify(tambah_archive));
