@@ -1,3 +1,4 @@
+//function masukan data
 function masuk(){
     let owner = document.getElementById("owner").value;
     let jenis = document.getElementById("jenis").value;
@@ -25,11 +26,9 @@ function masuk(){
     }
 }
 
-
-// function add_data(){
-//     show_data();
-// }
-
+/**
+ * function untuk menampilkan data dalam table
+ */
 function show_data(){
     let arr = JSON.parse(localStorage.getItem("kendaraan"));
     if(typeof arr != 'undifined'){
@@ -41,26 +40,17 @@ function show_data(){
                     <td>` + arr[i].jenis + `</td>
                     <td>` + arr[i].plate + `</td>
                     <td>` + arr[i].jam_masuk + `</td>
-                    <td >` + arr[i].waktu + `</td>
-                    <td class= "text-center"><button class="btn mx-auto rounded-4 bg-gradient btn-primary border-radius-4" onclick="getObject(` + i +`,'` + arr[i].owner + `','` + arr[i].jenis + `', '` + arr[i].jam_masuk + `')">keluar</button></td>
+                    <td class= "text-center"><button class="btn mx-auto rounded-4 bg-gradient btn-primary border-radius-4" onclick="hapus_data(` + i +`,'` + arr[i].owner + `','` + arr[i].jenis + `', '` + arr[i].jam_masuk + `')">keluar</button></td>
                 </tr>`
             );
         }
     }
 }
 
-function getObject(id, owner){
+
+
+function hapus_data(id, owner, jenis, jam_masuk, jam_keluar, total_jam, bayarMobil, bayarMotor, tanggal){
     let arr = JSON.parse(localStorage.getItem("kendaraan"));
-    _.find(arr);
-
-    console.log(owner);
-
-}
-
-
-function hapus_data(id, owner, jenis, jam_masuk, jam_keluar, total_jam, bayarMobil, bayarMotor){
-    let arr = JSON.parse(localStorage.getItem("kendaraan"));
-
     _.find(arr, ['owner', owner]);
     _.find(arr, ['jenis', jenis]);
     _.find(arr, ['jam_masuk', jam_masuk]);
@@ -68,6 +58,7 @@ function hapus_data(id, owner, jenis, jam_masuk, jam_keluar, total_jam, bayarMob
     if(jam_keluar < jam_masuk){
     return alert("maaf jam tidak valid");
     }
+    // kalkulasi pembayaran parkir mobil || motor
     total_jam = jam_keluar - jam_masuk;
         if( jenis == "mobil"){
             bayarMobil = total_jam * 5000;
@@ -84,11 +75,26 @@ function hapus_data(id, owner, jenis, jam_masuk, jam_keluar, total_jam, bayarMob
                 alert("anda harus membayar " + bayarMotor);
             }
         }
-    _.remove(arr,  ['jam_masuk', jam_masuk]);
-    localStorage.setItem("kendaraan", JSON.stringify(arr));
+    // hapus data array
+    _.remove(arr, ['owner', owner]);
+
+    //data tanggal
+    tanggal = new Date();
+    
+    //tambah data ke archive parkir
+    let tambah_archive = JSON.parse(localStorage.getItem("Archive Data")) || [];
+            tambah_archive.push({
+            "owner" : owner,
+            "jenis" : jenis,
+            "tanggal" : tanggal,
+            "pay" : bayarMobil || bayarMotor,
+        });
+    localStorage.setItem("Archive Data", JSON.stringify(tambah_archive));
     $(`#${id}`).remove();
+    localStorage.setItem("kendaraan", JSON.stringify(arr));
 }
-show_data();
+
+
 
 // search data 
 
@@ -118,6 +124,12 @@ document.querySelector('#search').addEventListener('keyup', function searchTable
         }
     }
 });
+
+show_data();
+
+//style navbar
+
+
 
 // function myFunction() {
 //     var input, filter, table, tr, td, i, txtValue;

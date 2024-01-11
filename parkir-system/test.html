@@ -13,11 +13,22 @@
 </head>
 
 <body>
-    <header class="shadow py-3 bg-dark">
-        <div class="header-content d-flex justify-content-center p-2">
-            <div id="header-msg" class="ml-5 align-self-center text-light"><h2>Parking Lot Management System</h2></div>
-        </div>
-    </header>
+        <nav class="navbar navbar-expand-lg  bg-black body-tertiary justify-content-center">
+            <div class="container">
+                <div class="col">
+                    <a class="navbar-brand text-white" href="#">Syistem Parkir</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+              <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                  <a class="nav-link text-white" href="./archive-parking.html">Archive Parkir</a>
+                  <a class="nav-link text-white" href="#">Pricing</a>
+                </div>
+              </div>
+            </div>
+          </nav>
     <div class="container-md pt-5">
         <div id="msg"></div>
         <div class="row">
@@ -74,7 +85,6 @@
                                                 <th scope="col">Jenis Kendaraan</th>
                                                 <th scope="col">No Kendaraan</th>
                                                 <th scope="col">Jam Masuk</th>
-                                                <th scope="col">Jam Keluar</th>
                                                 <th scope="col">Actions</th>
                                             </tr>
                                         </thead>
