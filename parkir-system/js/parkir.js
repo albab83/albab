@@ -1,34 +1,40 @@
-//function masukan data
+let now = new Date();
+
+//function memasukan data kendaraan 
 function masuk(){
+
     let owner = document.getElementById("owner").value;
     let jenis = document.getElementById("jenis").value;
     let plate = document.getElementById("plate").value;
-    let waktu = document.getElementById("waktu").value;
-    
-
+    //let waktu = document.getElementById("waktu").value;
+    jam_masuk = now.getHours()
     let arr = new Array();
     arr = JSON.parse(localStorage.getItem("kendaraan"))?JSON.parse(localStorage.getItem("kendaraan")):[];
     if(arr.some((v) =>{
         return v.plate == plate
-    })) {
+    })){
         alert("No kendaraan sudah ada")
     }else{
-        if( plate != ""){
+        if( owner != "" && jenis != "" && plate != "" ){
             arr.push({
                 "owner" : owner,
                 "jenis" : jenis,
                 "plate" : plate,
-                "jam_masuk" : waktu,
+                "tanggal" :  waktu_sekarang(),
+                "jam_masuk": jam_masuk,
             })
             localStorage.setItem("kendaraan", JSON.stringify(arr));
             show_data();
+        }else{
+           return alert("isi form dengan lengkap");
         }
     }
 }
 
-/**
- * function untuk menampilkan data dalam table
- */
+//function waktu masuk 
+
+
+//function untuk menampilkan data dalam table
 function show_data(){
     let arr = JSON.parse(localStorage.getItem("kendaraan"));
     if(typeof arr != 'undifined'){
@@ -39,7 +45,7 @@ function show_data(){
                     <td>` + arr[i].owner + `</td>
                     <td>` + arr[i].jenis + `</td>
                     <td>` + arr[i].plate + `</td>
-                    <td>` + arr[i].jam_masuk + `</td>
+                    <td>` + arr[i].tanggal + `</td>
                     <td class= "text-center"><button class="btn mx-auto rounded-4 bg-gradient btn-primary border-radius-4" onclick="hapus_data(` + i +`,'` + arr[i].owner + `','` + arr[i].jenis + `', '` + arr[i].jam_masuk + `')">keluar</button></td>
                 </tr>`
             );
@@ -47,63 +53,74 @@ function show_data(){
     }
 }
 
-
-
+// hapus data kendaraan 
 function hapus_data(id, owner, jenis, jam_masuk, jam_keluar, total_jam, bayarMobil, bayarMotor,){
     let arr = JSON.parse(localStorage.getItem("kendaraan"));
     _.find(arr, ['owner', owner]);
     _.find(arr, ['jenis', jenis]);
     _.find(arr, ['jam_masuk', jam_masuk]);
-    jam_keluar = prompt("masukan jam keluar:")
+    jam_keluar = prompt("masukan jam keluar:");
     if(jam_keluar < jam_masuk){
-    return alert("maaf jam tidak valid");
+        return alert("maaf jam tidak valid");
     }
+
     // kalkulasi pembayaran parkir mobil || motor
     total_jam = jam_keluar - jam_masuk;
         if( jenis == "mobil"){
             bayarMobil = total_jam * 5000;
             if(bayarMobil == 0){
-                bayarMobil = "gratis";
-                alert("Wios Tong Mayar, jug gera uwih");
+                bayarMobil = 5000;
+                alert("anda harus bayar " + bayarMobil);
             }else{
-                alert(owner +" anda harus membayar " + bayarMobil);
+                alert(owner +", anda harus membayar " + bayarMobil);
             }
         }else{
             bayarMotor = total_jam * 2000;
             if(bayarMotor == 0){
-                alert("Wios Tong Mayar, jug gera uwih")
+                bayarMotor = 2000;
+                alert("anda harus bayar " + bayarMotor);
             }else{
-                alert("anda harus membayar " + bayarMotor);
+                alert(owner + ", anda harus membayar " + bayarMotor);
             }
         }
-    // hapus data array
-    _.remove(arr, ['owner', owner]);
 
-    //data tanggal
-    let tanggal = new Date().getDate();
-    let bulan = new Date().getMonth();
-    let tahun = new Date().getFullYear();
-    
-    tanggal = String(tanggal).padStart(2, 0);        
-    bulan = String(bulan).padStart(2, 0);  
+    // hapus data array dan table
+    $(`#${id}`).remove();
+    _.remove(arr, {owner: owner});
 
     //tambah data ke archive parkir
     let tambah_archive = JSON.parse(localStorage.getItem("Archive Data")) || [];
             tambah_archive.push({
             "owner" : owner,
             "jenis" : jenis,
-            "tanggal" : `${tanggal}-${bulan}-${tahun}`,
+            "tanggal" : waktu_sekarang(),
             "pay" : bayarMobil || bayarMotor,
         });
+    
+    //simpan data ke archive data    
     localStorage.setItem("Archive Data", JSON.stringify(tambah_archive));
-    $(`#${id}`).remove();
+
+    //update penyimpanan localstorage key (kendaraan)
     localStorage.setItem("kendaraan", JSON.stringify(arr));
 }
 
-
+//fungction waktu dan tanggal sekarang 
+function waktu_sekarang(){
+    const date = new Date();
+    let tanggal = date.getDate();
+    let bulan = (date.getMonth()+1);
+    let tahun = date.getFullYear();
+    let hours = date.getHours();
+    let menit = date.getMinutes();
+    tanggal = String(tanggal).padStart(2, 0);
+    bulan = String(bulan).padStart(2, 0);
+    tahun = String(tahun).padStart(2, 0);
+    hours = String(hours).padStart(2, 0);
+    menit = String(menit).padStart(2, 0);
+    return  tanggal_sekarang =  tanggal + "-" + bulan + "-" + tahun + ", pukul, " + hours + ":" + menit + " Wib";
+}
 
 // search data 
-
 document.querySelector('#search').addEventListener('keyup', function searchTable(){
     //Dapatkan data dari input search
     const searchValue = document.querySelector('#search').value.toUpperCase();
@@ -131,12 +148,14 @@ document.querySelector('#search').addEventListener('keyup', function searchTable
     }
 });
 
+//menampilkan data dalam local storage dengan otomatis agar tidak perlu di reload
 show_data();
 
-//style navbar
 
 
-
+/**
+ * DIBUANG SAYANG 
+ */
 // function myFunction() {
 //     var input, filter, table, tr, td, i, txtValue;
 //     input = document.getElementById("search");
@@ -285,9 +304,6 @@ show_data();
 // }
 
 // show_data();
-
-
-
 //   {  
 //   	$('#add_data').append(`<tr id="{tambah_data[i]}">
 //          <td class="data">${tambah_data[i]}</td>

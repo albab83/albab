@@ -1,7 +1,7 @@
 function show_data(){
     let tambah_archive = JSON.parse(localStorage.getItem("Archive Data"));
     if(typeof tambah_archive != 'undifined'){
-        jQuery(".data").remove();
+        //jQuery(".data").remove();
         for (let i = 0; i < tambah_archive.length; i++){
             
             jQuery('#tableBodyArchive').append(
